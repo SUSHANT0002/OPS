@@ -1,8 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const connectDB = require("./config/database");
-const errorHandler = require("./middleware/errorHandler");
-const logger = require("./utils/logger");
+const connectDB = require("./src/config/db");
+const errorHandler = require("./src/middleware/errorHandler");
+const logger = require("./src/utils/logger");
 
 dotenv.config();
 connectDB();
@@ -13,8 +13,8 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use("/api/auth", require("./routes/authRoutes"));
-app.use("/api/orders", require("./routes/orderRoutes"));
+app.use("/api/auth", require("./src/routes/authRoutes"));
+app.use("/api/orders", require("./src/routes/orderRoutes"));
 
 // Error Handling Middleware (Always last)
 app.use(errorHandler);
