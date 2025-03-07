@@ -12,6 +12,8 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+res.send("Welcome to O-P-S")});
 // Routes
 app.use("/api/auth", require("./src/routes/authRoutes"));
 app.use("/api/orders", require("./src/routes/orderRoutes"));
